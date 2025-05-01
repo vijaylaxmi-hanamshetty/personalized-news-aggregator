@@ -1,0 +1,1 @@
+echo "# Personalized News Aggregator" > README.md
