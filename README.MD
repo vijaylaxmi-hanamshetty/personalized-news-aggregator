@@ -44,19 +44,7 @@ source venv/bin/activate  # On Windows
 pip install -r requirements.txt
 ```
 
-** Create .env File**
 
-```DEBUG=True
-SECRET_KEY=your-secret-key
-DB_NAME=new_aggregator_app
-DB_USER=yourusername
-DB_PASSWORD=yourpassword
-DB_HOST=db
-DB_PORT=5432
-TWILIO_ACCOUNT_SID=your_twilio_account_sid
-TWILIO_AUTH_TOKEN=your_twilio_auth_token
-TWILIO_PHONE_NUMBER=your_twilio_phone_number
-```
 
 ** Docker Setup**
 
@@ -80,15 +68,10 @@ POST /auth/login/: Log in an existing user (with SMS login )
 
 
 
-## Contributions
-Contributions are welcome! Feel free to fork and submit PRs.
+
 
 ## License
 MIT License
 ````
 Contributions
 Contributions are welcome! Fork the repository and submit a pull request.
-Author
-
-GitHub: @vijaylaxmi hanamshetty
-"""
