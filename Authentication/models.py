@@ -6,7 +6,7 @@ class UserManager(BaseUserManager):
         if not phone:
             raise ValueError("Users must have a phone number")
         user = self.model(phone=phone, name=name, role=role)
-        user.set_password(password)  # Securely hash password
+        user.set_password(password)  
         user.save(using=self._db)
         return user
 
@@ -22,7 +22,6 @@ class User(AbstractBaseUser):
     phone = models.CharField(max_length=15, unique=True)
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=5, choices=ROLE_CHOICES, default=ROLE_USER)
-
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = ['name', 'role']
 
