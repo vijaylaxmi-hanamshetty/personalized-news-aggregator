@@ -4,13 +4,12 @@ A backend application built with **Django** and **Django REST Framework** for ag
 
 The API is lightweight, easily extendable, and designed to scale with your needs. It's perfect for Newsaggregating data from multiple sources and organizing it for further use.
 
----
 
 ## Features
 
 - **User Authentication** (To be added): Secure registration and login functionality using Django and Django REST Framework.
 
----
+
 
 ## Prerequisites
 
@@ -21,7 +20,7 @@ Make sure you have the following installed:
 - **Twilio account**: For SMS notifications.
 - **Docker**: Used to containerize the application for easier deployment and development.
 
----
+
 
 ## Setup Instructions
 
