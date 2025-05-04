@@ -34,5 +34,6 @@ uritemplate==4.1.1
 requests
 twilio
 phonenumbers
-pytest
 pytest-django
+Pillow>=11.2.1
+
