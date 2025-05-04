@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_spectacular",
-    "Authentication",  # Ensure this is the correct app name
+    "Authentication", 
+    "Profile"
 ]
 
 MIDDLEWARE = [
