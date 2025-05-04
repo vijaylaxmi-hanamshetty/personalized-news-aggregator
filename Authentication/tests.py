@@ -82,7 +82,10 @@ class AuthenticationTestCase(TestCase):
      self.assertIn("user", response.data)
      self.assertEqual(response.data["user"]["phone"], self.valid_user_data["phone"])
      self.assertEqual(response.data["user"]["role"], self.valid_user_data["role"])
-
+     self.assertIn("access", response.data)  
+     self.assertIn("refresh", response.data)  
+     self.assertTrue(len(response.data["access"]) > 0)  
+     self.assertTrue(len(response.data["refresh"]) > 0)  
     
     def test_login_user_invalid_credentials(self):
      

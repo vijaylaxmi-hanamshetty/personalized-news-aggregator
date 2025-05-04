@@ -10,7 +10,7 @@ from drf_spectacular.utils import extend_schema, OpenApiResponse
 from twilio.base.exceptions import TwilioRestException
 import phonenumbers
 from phonenumbers.phonenumberutil import NumberParseException
-
+from rest_framework_simplejwt.tokens import RefreshToken 
 User = get_user_model()
 
 DEFAULT_REGION = 'IN'  
@@ -92,7 +92,9 @@ class LoginView(APIView):
             user = User.objects.filter(phone=phone).first()
 
             if user and user.check_password(password):
-              
+                refresh = RefreshToken.for_user(user)
+                access_token = str(refresh.access_token)
+                refresh_token = str(refresh) 
                 try:
                     parsed_number = phonenumbers.parse(phone, DEFAULT_REGION)  # None will use default region
                     if not phonenumbers.is_valid_number(parsed_number):
@@ -118,6 +120,8 @@ class LoginView(APIView):
                             "name": user.name,
                             "role": user.role,
                         },
+                        "access": access_token,  
+                        "refresh": refresh_token,  
                     },
                     status=status.HTTP_200_OK,
                 )
