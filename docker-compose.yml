@@ -19,8 +19,6 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - TWILIO_ACCOUNT_SID=your_twilio_account_sid
-      - TWILIO_AUTH_TOKEN=your_twilio_auth_token
-      - TWILIO_PHONE_NUMBER=your_twilio_phone_number
+      
 volumes:
   postgres_data:
