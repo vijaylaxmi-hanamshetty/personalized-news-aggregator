@@ -76,7 +76,7 @@ docker-compose exec web python manage.py migrate
 
 ## API Endpoints
 
-### 1. Register a New User (with SMS confirmation)
+### 1. Register  for a  User  Amin
 
 **Endpoint**: `POST /auth/register`
 
@@ -91,8 +91,21 @@ docker-compose exec web python manage.py migrate
 }
 ```
 
-### 2. Log in an Existing User (with SMS login)
+**Response**:
 
+```json
+{
+  "id": 1,
+  "name": "user",
+  "role":"role",
+  "phone": "+91XXXXXXXXXX",
+  "password": "yourpassword"
+}
+
+```
+``
+
+### 2. Log in an Existing User  and Admin
 **Endpoint**: `POST /auth/login`
 
 **Request Body**:
@@ -103,8 +116,113 @@ docker-compose exec web python manage.py migrate
   "password": "yourpassword"
 }
 ```
+**Response**:
+```json
+{
+ "phone": "+91XXXXXXXXXX",
+ "password": "yourpassword"
+}
+```
 
----
+## Creatate Profile for user
+### 1. Create Profile
+
+**Endpoint**: `POST /create/`
+**Request Body**:
+```
+ {
+  "user:"0"
+  "bio": "I am a software developer.",
+  "profile_picture": "profile_picture.jpg",  // Multipart file upload
+  "location": "New York",
+  "birth_date": "1990-01-01"
+}
+```
+**Response**:
+
+```json
+{
+  "id": 1,
+  "user": 1,
+  "bio": "I am a software developer.",
+  "profile_picture": "/media/uploads/profile_picture.jpg",
+  "location": "New York",
+  "birth_date": "1990-01-01",
+  "created_at": "2025-05-06T12:00:00Z"
+}
+```
+
+### 2.Retrieve Profile
+
+**Endpoint**: `GET /profile/`
+
+**Response**:
+
+```json
+{
+  "id": 1,
+  "user": 1,
+  "bio": "I am a software developer.",
+  "profile_picture": "/media/uploads/profile_picture.jpg",
+  "location": "New York",
+  "birth_date": "1990-01-01",
+  "created_at": "2025-05-06T12:00:00Z"
+}
+
+```
+
+### 3. Update Profile
+
+**Endpoint**: `PUT /profile/`
+
+
+```json
+{
+  "bio": "I am a senior software developer.",
+  "profile_picture": "updated_picture.jpg",  
+  "location": "San Francisco",
+  "birth_date": "1990-01-01"
+}
+
+```
+
+### 4.  DELETE /profile/
+**Endpoint**:`DELETE /todos/{id}`
+**Request Body**:
+```json
+{
+  "message":  "Profile deleted successfully."
+}
+
+```
+
+### 5.  Partially Update Profile
+
+
+**Endpoint**: `PATCH /profile/`
+
+**Request Body**:
+```
+ {
+  "bio": "I am a tech lead."
+}
+```
+**Response**:
+
+```json
+{
+  "id": 1,
+  "user": 1,
+  "bio": "I am a tech lead.",
+  "profile_picture": "/media/uploads/updated_picture.jpg",
+  "location": "San Francisco",
+  "birth_date": "1990-01-01",
+  "created_at": "2025-05-06T12:00:00Z"
+}
+```
+
+
+
 
 ## License
 
