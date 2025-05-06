@@ -1,7 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-
+from decouple import config
 # Load environment variables from the .env file
 load_dotenv()
 
@@ -26,8 +26,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework_simplejwt",
     "drf_spectacular",
-    "Authentication", 
+    "Authentication",
     "Profile",
 ]
 
@@ -102,16 +103,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # DRF and drf-spectacular config
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Your API',
-    'DESCRIPTION': 'API documentation with DRF Spectacular',
-    'VERSION': '1.0.0',
+    "TITLE": "Your API",
+    "DESCRIPTION": "API documentation with DRF Spectacular",
+    "VERSION": "1.0.0",
+    'COMPONENT_SPLIT_REQUEST': True,
 }
 AUTH_USER_MODEL = "Authentication.User"
 
-TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
