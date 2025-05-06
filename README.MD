@@ -18,7 +18,7 @@ Make sure you have the following installed:
 - **Python**: Version 3.x
 - **PostgreSQL**: The database used for storing application data.
 - **Twilio account**: For SMS notifications.
-- **Docker**: Used to containerize the application for easier deployment and development.
+- **Docker**: Used to containerize the application for easier deployment and development 
 
 
 
