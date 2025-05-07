@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     "Authentication",
     "Profile",
     "News",
-    "Category",
+    "Categories",
+    "Articles",
 ]
 
 MIDDLEWARE = [
