@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "Authentication",
     "Profile",
+    "NewsSource"
 ]
 
 MIDDLEWARE = [
