@@ -2,6 +2,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from decouple import config
+
 # Load environment variables from the .env file
 load_dotenv()
 
@@ -30,7 +31,8 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "Authentication",
     "Profile",
-    "NewsSource"
+    "News",
+    "Category",
 ]
 
 MIDDLEWARE = [
@@ -104,11 +106,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # DRF and drf-spectacular config
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
@@ -117,7 +119,6 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "Your API",
     "DESCRIPTION": "API documentation with DRF Spectacular",
     "VERSION": "1.0.0",
-    'COMPONENT_SPLIT_REQUEST': True,
+    "COMPONENT_SPLIT_REQUEST": True,
 }
 AUTH_USER_MODEL = "Authentication.User"
-
