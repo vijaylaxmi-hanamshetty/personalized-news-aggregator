@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "Categories",
     "Articles",
     "Comments",
-    "Savearticles"
+    "Savearticles",
 ]
 
 MIDDLEWARE = [
