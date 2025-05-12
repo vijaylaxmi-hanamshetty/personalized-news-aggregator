@@ -28,6 +28,7 @@ urlpatterns = [
     path('profile/',include('Profile.urls')),
     path('api/', include('News.urls')),
     path('api/', include('Articles.urls')),
+    path('api/', include('Categories.urls')),git
     # DRF Spectacular routes
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
