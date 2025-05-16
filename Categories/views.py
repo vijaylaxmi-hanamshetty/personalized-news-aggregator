@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from Categories.models import Categories
-from Categories.serializer import CategorySerializer
+from Categories.serializer import CategoriesSerializer
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework.response import Response
 
@@ -10,8 +10,8 @@ from rest_framework.response import Response
         OpenApiParameter(name='name', description='Filter categories by name', required=False, type=str),
     ]
 )
-class CategoryViewSet(viewsets.ModelViewSet):
-    serializer_class = CategorySerializer
+class CategoriesViewSet(viewsets.ModelViewSet):
+    serializer_class = CategoriesSerializer
     queryset = Categories.objects.all()
 
     def get_queryset(self):
