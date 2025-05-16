@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from Articles.models import Articles
 
 class SavedArticles(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="saved_articles")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="saved_articles")
     article = models.ForeignKey(Articles, on_delete=models.CASCADE, related_name="saved_by_users")
     saved_at = models.DateTimeField(auto_now_add=True)
 

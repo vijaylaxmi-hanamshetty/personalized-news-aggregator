@@ -30,7 +30,7 @@ urlpatterns = [
     path('api/', include('Articles.urls')),
     path('api/', include('Categories.urls')),
     path('api/', include('Comments.urls')),
-    path('api/', include('SavedArticles.urls')),
+    path('api/', include('Savearticles.urls')),
     # DRF Spectacular routes
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
