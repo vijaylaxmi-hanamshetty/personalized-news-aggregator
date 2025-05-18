@@ -25,15 +25,4 @@ class SavedArticleViewSet(viewsets.ModelViewSet):
             status=status.HTTP_405_METHOD_NOT_ALLOWED,
         )
 
-    def retrieve(self, request, *args, **kwargs):
-        article = self.get_object()
-
-        if not article:
-            return Response({"detail": "Article not Found"})
-
-            return Response(
-                {
-                    "message": "Custom message",
-                    "article": SavedArticlesSerializer(article).data,
-                }
-            )
+    
