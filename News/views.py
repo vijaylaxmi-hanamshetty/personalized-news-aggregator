@@ -39,4 +39,4 @@ class NewsViewSet(viewsets.ModelViewSet):
                 language="en",
                 logo_url=article.get("urlToImage"),
             )
-        return Response({"message": f"{len(articles)} articles saved."})
+        return Response({"message": f"{len(articles)} articles you have same name"})
