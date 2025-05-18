@@ -21,8 +21,7 @@ class ArticlesCRUDTestCase(APITestCase):
             logo_url="https://news.com/logo.png"
         )
         self.category = Categories.objects.create(
-            name="Tech",
-            slug="tech"
+            name="Tech"
         )
         self.articles_data = {
             "title": "Test Article",
@@ -80,3 +79,4 @@ class ArticlesCRUDTestCase(APITestCase):
         response = self.client.delete(self.detail_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Articles.objects.filter(id=self.article.id).exists())
+
