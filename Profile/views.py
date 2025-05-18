@@ -1,6 +1,5 @@
 from rest_framework import generics, permissions
-
-from .serializers import ProfileSerializer
+from Profile.serializers import ProfileSerializer
 from drf_spectacular.utils import extend_schema
 from rest_framework.parsers import MultiPartParser, FormParser
 
